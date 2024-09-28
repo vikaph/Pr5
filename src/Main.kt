@@ -1,14 +1,22 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
-    val name = "Kotlin"
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    println("Hello, " + name + "!")
-
-    for (i in 1..5) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        println("i = $i")
+    println("Введите целое число n: ")
+    val n = readLine()?.toIntOrNull()
+    println("Введите основание степени x:")
+    val x = readLine()?.toIntOrNull()
+    // Проверка корректности
+    if (n == null || x == null || x <= 1) {
+        println("Ошибка: введите корректные значения для n и x (x должен быть > 1).")
+        return
+    }
+    var y = 0
+    var power = 1
+    while (power < n) {
+        y++
+        power = Math.pow(x.toDouble(), y.toDouble()).toInt()
+    }
+    if (power == n) {
+        println("Существует целочисленный показатель степени y: $y")
+    } else {
+        println("Целочисленный показатель не существует")
     }
 }
